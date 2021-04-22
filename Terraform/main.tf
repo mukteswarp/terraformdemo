@@ -6,7 +6,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "myterraformgroup" {
-    name     = "myTFResourceGroup"
+    name     = "_tfstorageresrcgrp_"
+    # "myTFResourceGroup"
     location = "eastus"
 
     tags = {
@@ -25,7 +26,8 @@ resource "azurerm_resource_group" "myterraformgroup" {
 
 resource "azurerm_storage_account" "mystorageaccount" {
 #    name                        = "diag${random_id.randomId.hex}"
-    name                        = "tfstorageaccount"
+    name                        = "_tfstorageaccnt_"
+    # "tfstorageaccount"
     resource_group_name         = azurerm_resource_group.myterraformgroup.name
     location                    = "eastus"
     account_replication_type    = "LRS"

@@ -1,3 +1,14 @@
+ terraform {
+  required_version = ">= 0.11" 
+ backend "azurerm" {
+  storage_account_name = "_tfstorageaccnt_"
+    container_name       = "terraform"
+    key                  = "terraform.tfstate"
+	access_key  ="__storagekey__"
+  features{}
+	}
+	}
+# above added
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x.
     # If you're using version 1.x, the "features" block is not allowed.

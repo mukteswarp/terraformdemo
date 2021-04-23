@@ -1,13 +1,21 @@
-terraform {
-    required_version = ">= 0.11" 
-    backend "azurerm" {
-    storage_account_name = "_tfstorageaccnt_"
-    container_name       = "terraform"
-    key                  = "terraform.tfstate"
-    access_key  ="__storagekey__"
-    features{}
+terraform{
+    backend "azurerm"{
+        storage_account_name = "_tfstorageaccnt_"
+        container_name = "terraform"
+        key = "terraform.tfstate"
+        access_key = "_storagekey_"
+        }
     }
-}
+#terraform {
+#    required_version = ">= 0.11" 
+#    backend "azurerm" {
+#    storage_account_name = "_tfstorageaccnt_"
+#    container_name       = "terraform"
+#    key                  = "terraform.tfstate"
+#    access_key  ="__storagekey__"
+#    features{}
+#    }
+#}
 
 # above added
 provider "azurerm" {

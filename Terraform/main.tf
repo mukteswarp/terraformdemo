@@ -1,25 +1,14 @@
-terraform{
+terraform {
+    required_version = ">= 0.11"
     backend "azurerm" {
-        required_version = ">= 0.11"
-        storage_account_name = "_tfstorageaccnt_"
+        storage_account_name = "__tfstorageaccnt__"
         container_name = "terraform"
         key = "terraform.tfstate"
-        access_key = "_storagekey_"
+        access_key ="__storagekey__"
         features{}
-        }
     }
-#terraform {
-#    required_version = ">= 0.11" 
-#    backend "azurerm" {
-#    storage_account_name = "_tfstorageaccnt_"
-#    container_name       = "terraform"
-#    key                  = "terraform.tfstate"
-#    access_key  ="__storagekey__"
-#    features{}
-#    }
-#}
+}
 
-# above added
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x.
     # If you're using version 1.x, the "features" block is not allowed.
@@ -28,7 +17,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "myterraformgroup" {
-    name     = "_tfstorageresrcgrp_"
+    name     = "__tfstorageresrcgrp__"
     # "myTFResourceGroup"
     location = "eastus"
 
@@ -48,7 +37,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 
 resource "azurerm_storage_account" "mystorageaccount" {
 #    name                        = "diag${random_id.randomId.hex}"
-    name                        = "_tfstorageaccnt_"
+    name                        = "__tfstorageaccnt__"
     # "tfstorageaccount"
     resource_group_name         = azurerm_resource_group.myterraformgroup.name
     location                    = "eastus"
